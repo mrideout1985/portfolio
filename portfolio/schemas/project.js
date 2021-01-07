@@ -10,12 +10,21 @@ export default {
 		},
 
 		{
+			name: "mainImage",
+			title: "Main image",
+			type: "image",
+			options: {
+				hotspot: true,
+			},
+		},
+
+		{
 			name: "date",
 			type: "datetime",
 		},
 		{
 			name: "place",
-			type: "string"
+			type: "string",
 		},
 		{
 			name: "description",
@@ -28,8 +37,8 @@ export default {
 			options: {
 				list: [
 					{ value: "personal", title: "Personal" },
-                    { value: "client", title: "Client" },
-                    {value: "learning", title: "Learning"},
+					{ value: "client", title: "Client" },
+					{ value: "learning", title: "Learning" },
 				],
 			},
 		},
@@ -41,13 +50,13 @@ export default {
 			name: "tags",
 			type: "array",
 			of: [
-                {
-                     type: "string" 
-                    }
-                ],
-                options: {
-                    layout: "tags",
-                },
+				{
+					type: "string",
+				},
+			],
+			options: {
+				layout: "tags",
+			},
 		},
 	],
 };

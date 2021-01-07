@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 /**
  * This is the schema definition for the rich text fields used for
  * for this blog studio. When you import it in schemas.js it can be
@@ -28,7 +29,7 @@ export default {
         {title: 'H4', value: 'h4'},
         {title: 'Quote', value: 'blockquote'},
       ],
-      lists: [{title: 'Bullet', value: 'bullet'}],
+      lists: [{title: 'Bullet', value: 'bullet'}, {title: 'Number', value: 'number'}],
       // Marks let you mark up inline text in the block editor.
       marks: {
         // Decorators usually describe a single property – e.g. a typographic

@@ -1,59 +1,107 @@
-import React, {useState, useEffect} from "react";
-import sanityClient from "../client.js"
+import React, { useState, useEffect } from "react";
+import sanityClient from "../client.js";
+import styles from "./Project.module.scss";
 
 const Project = () => {
+	const [projectData, setProjectData] = useState(null);
 
-	const [projectData, setProjectData] = useState(null)
-
-	useEffect(()=> {
-		sanityClient.fetch(`*[_type == "project"] {
+	useEffect(() => {
+		sanityClient
+			.fetch(
+				`*[_type == "project"] {
 			title, 
 			date, 
 			place,
 			description, 
 			projectType, 
 			link, 
-			tags
-		}`).then((data)=> setProjectData(data))
-		.catch(console.error)
-	}, [])
+			tags,
+			mainImage{
+                asset->{
+                    _id,
+                    url
+                },
+                alt
+			}
+		}`
+			)
+			.then((data) => setProjectData(data))
+			.catch(console.error);
+	}, []);
 
+	const handleTags = () => {
+		return (
+			projectData &&
+			projectData.map((project) => {
+				return (
+					project.tags &&
+					project.tags.map((tag, key) => (
+						<div
+							key={key}
+							style={{
+								display: "inline-block",
+								padding: ".2rem",
+							}}
+						>
+							{"#" + tag}
+						</div>
+					))
+				);
+			})
+		);
+	};
 
 	return (
-	<main className="bg-green-100 min-h-screen p-12">
-		<section className="container mx-auto">
-			<h1 className="text-5xl flex justify-center cursive">My Project</h1>
-			<h2 className="text-lg text-gray-600 flex justify-center mb-12">Welcome to my project page</h2>
-			<section className="grid grid-cols-2 gap-8">
-				{projectData && projectData.map((project, index) => (
-				<article className="relative rounded-lg shadow-xl bg-white p-16">
-					<h3 className="text-gray-800 text-3xl font-bold mb-2 hover:text-red-700"><a href={project.link} alt={project.title} target="_blank" rel="noopener noreferrer">{project.title}</a></h3>
-					<div className="text-gray-500 text-xs space-x-4">
-					<span>
-						<strong className="font-bold">Finished On</strong>:{" "}
-						{new Date(project.date).toLocaleDateString()}
-					</span>
-					<span>
-						<strong className="font-bold">Company</strong>:{" "}
-						{project.place}
-					</span>
-					<span>
-						<strong className="font-bold">Type</strong>:{" "}
-						{project.projectType}
-					</span>
-					<p className="my-6 text-lg text-gray-700 leading-relaxed">{project.description}</p>
-					<a href={project.link} alt={project.title} target="_blank" rel="noopener noreferrer" className="text-red-500 font-bold hover:underline hover:text-red-400 text-xl
-					" >
-						View The Project{" "}
-					<span role="img" aria-label="right pointer">👉</span>					
-					</a>
-					</div>
-				</article>
-				))}
+		<main className={styles["page"]}>
+			<section className={styles["project-section"]}>
+				<h1>Projects</h1>
+				<section className={styles["project-container"]}>
+					{projectData &&
+						projectData.map((project, index) => (
+							<article className={styles["card"]} key={index}>
+								<div className={styles["image-data"]}>
+									<div
+										className={styles["background-image"]}
+										style={{
+											backgroundImage: `url(${project.mainImage?.asset.url})`,
+										}}
+									></div>
+									<div
+										className={
+											styles["publication-details"]
+										}
+									>
+										<span className={styles.author}>
+											<h2>Matthew Rideout</h2>
+										</span>
+										<span className={styles.date}>
+											<h2>
+												{new Date(
+													project.date
+												).toLocaleDateString()}
+											</h2>
+										</span>
+									</div>
+								</div>
+								<div className={styles["post-data"]}>
+									<h1>{project.title}</h1>
+									<p className={styles["description"]}>
+										{" "}
+										{project.description}
+									</p>
+									{handleTags()}
+									<div className={styles["cta"]}>
+										<a href={`${project.link}`}>
+											View Project &rarr;
+										</a>
+									</div>
+								</div>
+							</article>
+						))}
+				</section>
 			</section>
-		</section>
-	</main>
-	)
+		</main>
+	);
 };
 
 export default Project;

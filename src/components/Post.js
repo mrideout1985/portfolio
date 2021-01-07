@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import sanityClient from "../client.js";
+import styles from "./Post.module.scss";
 
 export default function Post() {
 	const [postData, setPost] = useState(null);
@@ -11,15 +12,18 @@ export default function Post() {
 		sanityClient
 			.fetch(
 				`*[_type == "post"]{
-            title,
-            slug,
-            mainImage{
+			title,
+			publishedAt,
+			overview,
+			slug,
+			mainImage{
                 asset->{
                     _id,
                     url
                 },
                 alt
-            }
+			}
+			,tags
         }`
 			)
 			.then((data) => setPost(data))
@@ -27,40 +31,54 @@ export default function Post() {
 	}, []);
 
 	return (
-		<main className="bg-green-100 min-h-screen p-12">
-			<section className="container mx-auto">
-				<h1 className="text-5xl flex justify-center cursive">
-					Blog Post Page
-				</h1>
-				<h2 className="text-lg text-gray-600 flex justify-center mb-12">
-					Welcome to my page of blog posts
-				</h2>
-				<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+		<main className={styles["page"]}>
+			<section className={styles["post-section"]}>
+				<h1>Blog Posts</h1>
+				<div className={styles["post-container"]}>
 					{postData &&
 						postData.map((post, index) => (
-							<article>
+							<article className={styles["card"]} key={index}>
 								{console.log(post)}
-								<Link
-									to={"/post/" + post.slug.current}
-									key={post.slug.current}
-								>
-									<span
-										className="block h-64 relative rounded shadow leading-snug bg-white border-l-8 border-green-400"
-										key={index}
+								<div className={styles["image-data"]}>
+									<div
+										className={styles["background-image"]}
+										style={{
+											backgroundImage: `url(${post.mainImage?.asset.url})`,
+										}}
+									></div>
+									<div
+										className={
+											styles["publication-details"]
+										}
 									>
-										<img
-											src={post.mainImage.asset.url}
-											alt={post.mainImage.alt}
-											className="w-full h-full rounded-r object-cover absolute"
-										/>
-
-										<span className="block relative h-full flex justify-end items-end pr-4 pb-4">
-											<h3 className="text-gray-800 text-lg px-3 py-4 bg-red-700 text-red-100 bg-opacity-75 rounded">
-												{post.title}
-											</h3>
+										<span className={styles.author}>
+											<h2>Matthew Rideout</h2>
 										</span>
-									</span>
-								</Link>
+										<span className={styles.date}>
+											<h2>
+												{new Date(
+													post.publishedAt
+												).toLocaleDateString()}
+											</h2>
+										</span>
+									</div>
+								</div>
+								<div className={styles["post-data"]}>
+									<h1>{post.title}</h1>
+									<p className={styles["description"]}>
+										{" "}
+										{post.overview}
+									</p>
+									{/* {handleTags()} */}
+									<div className={styles["cta"]}>
+										<Link
+											to={"/post/" + post.slug.current}
+											key={post.slug.current}
+										>
+											Read More &rarr;
+										</Link>
+									</div>
+								</div>
 							</article>
 						))}
 				</div>
