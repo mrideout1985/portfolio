@@ -1,76 +1,56 @@
 .container {
-  
+    padding: 1rem 2rem;
 
-    &__author {
-        display: flex;
-        padding: 10px;
-        margin: auto;
-        position: relative;
-        justify-content: flex-start;
-        flex-direction: column;
-        align-items: center;
-        width: 80%;
-        
+    h1 {
+        font-family: open sans;
+        font-size: 3rem;
+        font-weight: 100;
+
+
+    }
+
+    .author {
+        margin-top: 5rem;
+
         .section {
             display: flex;
-            background-color: #9ca8f1;
-            border-radius: 10px;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            padding: 1.5rem;
-            box-shadow: -5px 0  #5c6ac3;
-            
+
             img {
+                height: 10rem;
                 border-radius: 50%;
-                width: 20rem;
-                height: 20rem;               
+                box-shadow: 2px .5rem 1rem rgba(0, 0, 0, .6);
             }
 
             .about {
-                font-size: large;
                 display: flex;
+                justify-content: center;
+                align-items: center;
                 flex-direction: column;
-                justify-content: center;  
+                text-align: center;
+
+                code {
+                    background-color: rgb(203, 202, 209);
+                    font-family: 'Courier New', Courier, monospace;
+                    padding: .5rem 1rem;
+                    letter-spacing: .1rem;
+                }
+
+                h1 {
+                    font-family: open sans;
+
+                    span {
+                        font-weight: 700;
+                    }
+                }
 
                 .blockcontent {
-                   
-                    em {
-                        letter-spacing: .12rem;
-                        word-spacing: .5rem;
-                    }
-
-                    code {
-                        border: 1px solid black;
-                        background-color: hsl(253, 11%, 15%);
-                        color: white;
-                        font-size: large;
-                        padding: .2rem;
-                        font-family: monospace;                                           
-                    }
-
-                   em {
-                       position: relative;
-                       &:before {
-                           content: "'";
-                           top: 0;
-                           left: -.5rem;
-                           position: absolute;
-                       }
-
-                       &:after {
-                        content: "'";
-                        top: 0;
-                        right: -.5rem;
-                        position: absolute;
-                       }
-                   }
-
-                    
-
-
+                    display: block;
+                    text-align: justify;
+                    width: 50%;
                 }
-                              
             }
         }
     }

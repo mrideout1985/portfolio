@@ -42,21 +42,40 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                box-sizing: border-box;
+                padding: 1rem 2rem;
+
 
                 .navlink {
-                    padding: 1rem 2rem;
+                    padding: .5rem 1.5rem;
                     text-decoration: none;
                     position: relative;
 
-                    &:hover {}
 
-                    &--active {
-                        background-color: red;
-                        border-radius: 10px;
+
+                    &:hover::after {
+                        transform: scaleY(1);
+                        transform-origin: bottom;
+                        width: 100%;
+                        height: 100%;
+                        transition: transform 0.25s ease-in-out;
+                        z-index: -1;
+
+
                     }
 
-                    &:last-child {
-                        margin-right: 1rem;
+                    &:after {
+                        position: absolute;
+                        content: "";
+                        bottom: 0;
+                        text-decoration: none;
+                        left: 0;
+                        height: 0;
+                        width: 100%;
+                        background: #ff1500bd;
+                        transition: transform 0.25s ease-in-out;
+                        transform: scaleY(0);
+
                     }
 
                     &:active {
@@ -69,6 +88,26 @@
 
 
 
+                }
+
+                .navlink-active {
+                    position: relative;
+                    transition: all .25 ease-in-out;
+
+
+                    &:after {
+                        position: absolute;
+                        content: "";
+                        bottom: 0;
+                        text-decoration: none;
+                        transform: scaleX(1);
+                        transform-origin: center;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: #ff1500bd;
+                        z-index: -1;
+                    }
                 }
 
             }
