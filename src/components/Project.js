@@ -54,7 +54,7 @@ const Project = () => {
 	return (
 		<main className={styles["page"]}>
 			<section className={styles["project-section"]}>
-				<h1>Projects</h1>
+				<h2>Projects</h2>
 				<section className={styles["project-container"]}>
 					{projectData &&
 						projectData.map((project, index) => (
@@ -72,14 +72,14 @@ const Project = () => {
 										}
 									>
 										<span className={styles.author}>
-											<h2>Matthew Rideout</h2>
+											<h3>Matthew Rideout</h3>
 										</span>
 										<span className={styles.date}>
-											<h2>
+											<h3>
 												{new Date(
 													project.date
 												).toLocaleDateString()}
-											</h2>
+											</h3>
 										</span>
 									</div>
 								</div>

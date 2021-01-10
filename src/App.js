@@ -10,13 +10,15 @@ import Footer from "./components/Footer";
 function App() {
 	return (
 		<BrowserRouter>
-			<NavBar />
 			<Switch>
-				<Route component={About} path="/" exact />
-				<Route component={About} path="/about" />
-				<Route component={SinglePost} path="/post/:slug" />
-				<Route component={Post} path="/post" />
-				<Route component={Project} path="/project" />
+				<div className="content">
+					<NavBar />
+					<Route component={About} path="/" exact />
+					<Route component={About} path="/about" />
+					<Route component={SinglePost} path="/post/:slug" />
+					<Route component={Post} path="/post" />
+					<Route component={Project} path="/project" />
+				</div>
 			</Switch>
 			<Footer />
 		</BrowserRouter>

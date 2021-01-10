@@ -29,24 +29,24 @@ const About = () => {
 
 	return (
 		<main className={styles["container"]}>
-			<h1>About</h1>
 			<div className={styles["author"]}>
 				<section className={styles["section"]}>
+					<h2>About</h2>
 					<img
 						src={urlFor(author.authorImage).url()}
 						alt={author.name}
 					/>
 					<div className={styles["about"]}>
-						<h1>
+						<h3>
 							Hey there I'm, <span>{author.name}</span>
-						</h1>
-						<div className={styles["blockcontent"]}>
-							<SanityBlockContent
-								dataset="production"
-								projectId="5q9uij05"
-								blocks={author.bio}
-							/>
-						</div>
+						</h3>
+						{/* <div className={styles["blockcontent"]}> */}
+						<SanityBlockContent
+							dataset="production"
+							projectId="5q9uij05"
+							blocks={author.bio}
+						/>
+						{/* </div> */}
 					</div>
 				</section>
 			</div>

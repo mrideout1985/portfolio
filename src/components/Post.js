@@ -33,7 +33,7 @@ export default function Post() {
 	return (
 		<main className={styles["page"]}>
 			<section className={styles["post-section"]}>
-				<h1>Blog Posts</h1>
+				<h2>Blog Posts</h2>
 				<div className={styles["post-container"]}>
 					{postData &&
 						postData.map((post, index) => (
@@ -52,7 +52,7 @@ export default function Post() {
 										}
 									>
 										<span className={styles.author}>
-											<h2>Matthew Rideout</h2>
+											<h3>Matthew Rideout</h3>
 										</span>
 										<span className={styles.date}>
 											<h2>
