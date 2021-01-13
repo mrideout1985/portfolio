@@ -5,6 +5,8 @@
     width: 1200px;
     padding: .5rem 1rem;
     box-sizing: border-box;
+    font-family: Open sans;
+
 
 
 
@@ -19,6 +21,7 @@
             font-size: 3rem;
             font-weight: 100;
             align-self: flex-start;
+
         }
 
 
@@ -26,7 +29,6 @@
             width: 100%;
             height: 100%;
             margin-top: 5rem;
-
             display: grid;
             grid-template-columns: repeat(1, 1fr);
             grid-template-rows: auto;
@@ -34,23 +36,27 @@
 
 
             .card {
+                flex-direction: row;
+                max-width: 75rem;
+                height: 25rem;
                 display: flex;
-                flex-direction: column;
                 box-shadow: 2px 1rem 1rem rgba(0, 0, 0, .6);
                 background-color: #fff;
-
-
-
+                padding: 0rem;
 
                 &:hover .background-image {
                     transform: scale(1.5);
                 }
 
+
+
+
                 .image-data {
-                    height: 25rem;
                     position: relative;
                     z-index: 1;
                     overflow: hidden;
+                    flex-basis: 40%;
+                    height: unset;
 
 
                     .background-image {
@@ -81,14 +87,20 @@
                             transform: translate(0);
                         }
 
+
                         .author {
                             display: inline-block;
                             color: white;
                             margin-bottom: 0.5rem;
                             transition: all.5s .3s;
+                            transform: translateY(-3rem);
+                            opacity: 0;
 
-                            h2 {
+                            h3 {
                                 margin: 0;
+                                font-size: 2rem;
+                                font-weight: 100;
+
                             }
 
 
@@ -102,9 +114,14 @@
 
                         .date {
                             display: block;
+                            transform: translateY(2rem);
+                            opacity: 0;
+                            transition: all.5s .3s;
 
-                            h2 {
+                            h3 {
                                 margin: 0;
+                                font-size: 2rem;
+                                font-weight: 100;
                             }
                         }
 
@@ -114,13 +131,14 @@
 
                 .post-data {
                     background-color: #fff;
-                    padding: 2rem 3rem;
+                    padding: 1rem 3rem;
                     position: relative;
-
+                    flex-basis: 60%;
 
                     h1 {
                         font-size: 2.5rem;
                         text-decoration: underline;
+                        margin-top: 0;
                         line-height: 1;
                     }
 
@@ -128,7 +146,6 @@
                     .description {
                         position: relative;
                         line-height: 1.5rem;
-
 
                         &::first-letter {
                             margin-left: 1rem;
@@ -144,7 +161,6 @@
                             height: 1.5rem;
                             background-color: #ff1500bd;
                             border-radius: 2rem;
-
                         }
                     }
 
@@ -157,7 +173,7 @@
                         right: 1rem;
 
                         a {
-                            background-color: #ff1500;
+                            background: #ff1500;
                             background-clip: text;
                             -webkit-background-clip: text;
                             color: transparent;
@@ -185,9 +201,11 @@
                     }
                 }
 
+
                 @include respond(phone) {
-                    flex-direction: row;
-                    max-width: 75rem;
+                    flex-direction: column;
+                    max-width: 550px;
+                    justify-self: center;
 
 
                     .image-data {
@@ -245,11 +263,15 @@
 
                 }
 
+                @include respond(phone) {
+                    height: 35rem;
+                }
+
             }
 
 
             @include respond(phone) {
-                grid-template-columns: repeat(auto-fill, minmax(650px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
                 grid-template-rows: repeat(auto-fill, minmax(25rem, 10rem));
             }
 
@@ -275,5 +297,20 @@
 
         }
 
+
+
+    }
+
+    @include respond(phone) {
+        width: 600px;
+        height: 100vh;
+
+        .post-section {
+            width: 100%;
+
+            h2 {
+                text-align: center;
+            }
+        }
     }
 }

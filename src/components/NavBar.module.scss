@@ -8,21 +8,23 @@
     box-sizing: border-box;
 
 
+
+
     &__header {
 
-        height: 100%;
 
 
         &-nav {
+
             display: flex;
             justify-content: space-between;
             align-items: center;
             height: 100%;
-            flex-wrap: wrap;
 
 
             .logo {
                 text-decoration: none;
+
 
                 h1 {
                     font-size: 3.5rem;
@@ -38,6 +40,9 @@
                 &:visited {
                     color: black;
                 }
+
+
+
             }
 
             .menu {
@@ -123,28 +128,29 @@
             }
 
             @include respond(phone) {
-                justify-content: space-between;
-                flex-wrap: nowrap;
+                justify-content: center;
+                flex-direction: column;
 
                 .logo {
-                    h1 {
-                        font-size: 2.5rem;
-                    }
+                    h1 {}
                 }
             }
+
 
 
         }
 
     }
 
-    @include respond(phone) {}
-
-    @include respond(tab-port) {}
-
-    @include respond(tab-land) {}
-
-    @include respond(big-desktop) {}
-
-
+    @include respond(phone) {
+        width: 600px;
+    }
 }
+
+
+
+// @include respond(tab-port) {}
+
+// @include respond(tab-land) {}
+
+// @include respond(big-desktop) {}

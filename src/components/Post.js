@@ -55,11 +55,11 @@ export default function Post() {
 											<h3>Matthew Rideout</h3>
 										</span>
 										<span className={styles.date}>
-											<h2>
+											<h3>
 												{new Date(
 													post.publishedAt
 												).toLocaleDateString()}
-											</h2>
+											</h3>
 										</span>
 									</div>
 								</div>
@@ -72,7 +72,7 @@ export default function Post() {
 									{/* {handleTags()} */}
 									<div className={styles["cta"]}>
 										<Link
-											to={"/post/" + post.slug.current}
+											to={"/posts/" + post.slug.current}
 											key={post.slug.current}
 										>
 											Read More &rarr;

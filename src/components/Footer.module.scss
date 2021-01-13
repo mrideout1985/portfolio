@@ -1,5 +1,8 @@
+@import "../sass/abstracts/mixins";
+
+
 .footer {
-    width: 100%;
+    width: 1200px;
     height: 5rem;
     display: flex;
     justify-content: space-between;
@@ -25,4 +28,9 @@
 
 
     }
+
+    @include respond(phone) {
+        width: 600px;
+    }
+
 }

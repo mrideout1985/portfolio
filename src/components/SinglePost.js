@@ -45,9 +45,9 @@ const SinglePost = () => {
 				<header className={styles["header"]}>
 					<div className={styles["post-info-container"]}>
 						<div className={styles["post-info"]}>
-							<h1 className={styles["title"]}>
+							<h2 className={styles["title"]}>
 								{singlePost.title}
-							</h1>
+							</h2>
 							<div className={styles["author"]}>
 								<img
 									src={urlFor(singlePost.authorImage).url()}
@@ -70,13 +70,6 @@ const SinglePost = () => {
 						projectId="5q9uij05"
 						blocks={singlePost.body}
 					/>
-				</div>
-				<div className={styles["author"]}>
-					<img
-						src={urlFor(singlePost.authorImage).url()}
-						alt={singlePost.name}
-					/>
-					<p className={styles["author-name"]}>{singlePost.name}</p>
 				</div>
 			</article>
 		</main>

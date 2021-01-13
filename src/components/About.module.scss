@@ -71,7 +71,34 @@
         }
     }
 
-    @include respond(phone) {}
+    @include respond(phone) {
+
+        width: 600px;
+
+        .author {
+
+
+            .section {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                h2 {
+                    align-self: center;
+                }
+
+                .about {
+                    h3 {
+                        text-align: center;
+
+                        span {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     @include respond(tab-port) {}
 

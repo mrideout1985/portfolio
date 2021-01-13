@@ -86,7 +86,6 @@ const Project = () => {
 								<div className={styles["post-data"]}>
 									<h1>{project.title}</h1>
 									<p className={styles["description"]}>
-										{" "}
 										{project.description}
 									</p>
 									{handleTags()}

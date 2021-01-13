@@ -201,8 +201,9 @@
 
 
                 @include respond(phone) {
-                    flex-direction: row;
-                    max-width: 75rem;
+                    flex-direction: column;
+                    max-width: 550px;
+                    justify-self: center;
 
 
                     .image-data {
@@ -261,11 +262,15 @@
 
                 }
 
+                @include respond(phone) {
+                    height: 50rem;
+                }
+
             }
 
             @include respond(phone) {
-                grid-template-columns: repeat(auto-fill, minmax(650px, 1fr));
-                grid-template-rows: repeat(auto-fill, minmax(25rem, 10rem));
+                grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+                grid-template-rows: repeat(auto-fill, minmax(initial, 10rem));
             }
 
             .card:hover .publication-details {
@@ -285,9 +290,25 @@
                 }
             }
 
+            @include respond(phone) {}
+
 
 
         }
 
     }
+
+    @include respond(phone) {
+        width: 600px;
+
+        .project-section {
+            width: 100%;
+
+            h2 {
+                text-align: center;
+
+            }
+        }
+    }
+
 }
