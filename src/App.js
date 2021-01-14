@@ -19,6 +19,7 @@ function App() {
 					<Route component={Post} path="/post" />
 					<Route component={Project} path="/project" />
 				</div>
+				<Footer />
 			</Switch>
 			<Footer />
 		</BrowserRouter>

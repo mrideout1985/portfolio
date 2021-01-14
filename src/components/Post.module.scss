@@ -272,7 +272,7 @@
 
             @include respond(phone) {
                 grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
-                grid-template-rows: repeat(auto-fill, minmax(25rem, 10rem));
+                grid-template-rows: repeat(auto-fill, minmax(initial, 10rem));
             }
 
             .card:hover .publication-details {
@@ -303,7 +303,6 @@
 
     @include respond(phone) {
         width: 600px;
-        height: 100vh;
 
         .post-section {
             width: 100%;
