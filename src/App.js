@@ -11,14 +11,12 @@ function App() {
 	return (
 		<BrowserRouter>
 			<div className="content">
-				<Switch>
-					<NavBar />
-					<Route component={About} path="/" exact />
-					<Route component={About} path="/about" />
-					<Route component={SinglePost} path="/posts/:slug" />
-					<Route component={Post} path="/post" />
-					<Route component={Project} path="/project" />
-				</Switch>
+				<NavBar />
+				<Route component={About} path="/" exact />
+				<Route component={About} path="/about" />
+				<Route component={SinglePost} path="/posts/:slug" />
+				<Route component={Post} path="/post" />
+				<Route component={Project} path="/project" />
 			</div>
 			<Footer />
 		</BrowserRouter>
