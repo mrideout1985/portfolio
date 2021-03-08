@@ -1,36 +1,29 @@
 @import "../sass/abstracts/mixins";
 
-
 .footer {
-    width: 1200px;
-    height: 5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: black;
-    border-top: 1px solid black;
-    margin-top: 2.5rem;
+	height: 5rem;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: black;
+	border-top: 1px solid black;
+	margin-top: 2.5rem;
 
-    border-bottom: 1px solid black;
+	h1 {
+		margin-left: 1rem;
+		font-family: monospace;
+	}
 
-    h1 {
-        margin-left: 1rem;
-        font-family: monospace;
-    }
+	.icons {
+		margin-right: 1rem;
 
-    .icons {
-        margin-right: 1rem;
+		.sm-icons {
+			margin-right: 1.5rem;
+		}
+	}
 
-        .sm-icons {
-            margin-right: 1.5rem;
-        }
-
-
-
-    }
-
-    @include respond(phone) {
-        width: 600px;
-    }
-
+	@include respond(phone) {
+		width: 600px;
+	}
 }
