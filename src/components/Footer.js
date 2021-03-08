@@ -22,7 +22,7 @@ const Footer = () => {
 					style={{ height: 35, width: 35 }}
 				/>
 				<SocialIcon
-					url="mailto:mrideout.1985@gmail.com"
+					url="mailto:mrideout.dev5@gmail.com"
 					className={styles["sm-icons"]}
 					target="_blank"
 					fgColor="#fff"
