@@ -15,8 +15,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "react-social-icons": "^4.1.0",
+    "react-syntax-highlighter": "^15.4.3",
     "web-vitals": "^0.2.4"
-
   },
   "scripts": {
     "start": "react-scripts start",
@@ -24,7 +24,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "generate-icons": "npx @svgr/cli -d src/components/icons/svg src/images/ --ext=js"
-
   },
   "eslintConfig": {
     "extends": [

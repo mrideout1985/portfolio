@@ -4,6 +4,8 @@ import sanityClient from "../client.js";
 import imageUrlBuilder from "@sanity/image-url";
 import BlockContent from "@sanity/block-content-to-react";
 import styles from "./SinglePost.module.scss";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { a11yDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -12,6 +14,46 @@ function urlFor(source) {
 
 const SinglePost = () => {
 	const [singlePost, setSinglePost] = useState(null);
+
+	// 	const code = [
+	// 		{
+	// 			_type: "code",
+	// 			children: [
+	// 				{
+	// 					_key: "asdf",
+	// 					_type: "code",
+	// 					marks: ["s0m3key"],
+	// 					text: "Sanity",
+	// 				},
+	// 			],
+	// 			markDefs: [
+	// 				{
+	// 					_key: "somekey",
+	// 					_type: "code",
+	// 					color: "#fff",
+	// 				},
+	// 			],
+	// 		},
+	// 	];
+
+	const codeblock = {
+		types: {
+			code: ({ node = {} }) => {
+				const { code, language } = node;
+				if (!code) {
+					return null;
+				}
+				return (
+					<SyntaxHighlighter
+						style={a11yDark}
+						language={"javascript" || "text"}
+					>
+						{code}
+					</SyntaxHighlighter>
+				);
+			},
+		},
+	};
 
 	const { slug } = useParams();
 
@@ -69,8 +111,10 @@ const SinglePost = () => {
 						dataset="production"
 						projectId="5q9uij05"
 						blocks={singlePost.body}
+						serializers={codeblock}
 					/>
 				</div>
+				{console.log(singlePost)}
 			</article>
 		</main>
 	);
