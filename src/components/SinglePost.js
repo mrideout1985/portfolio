@@ -15,31 +15,10 @@ function urlFor(source) {
 const SinglePost = () => {
 	const [singlePost, setSinglePost] = useState(null);
 
-	// 	const code = [
-	// 		{
-	// 			_type: "code",
-	// 			children: [
-	// 				{
-	// 					_key: "asdf",
-	// 					_type: "code",
-	// 					marks: ["s0m3key"],
-	// 					text: "Sanity",
-	// 				},
-	// 			],
-	// 			markDefs: [
-	// 				{
-	// 					_key: "somekey",
-	// 					_type: "code",
-	// 					color: "#fff",
-	// 				},
-	// 			],
-	// 		},
-	// 	];
-
 	const codeblock = {
 		types: {
 			code: ({ node = {} }) => {
-				const { code, language } = node;
+				const { code } = node;
 				if (!code) {
 					return null;
 				}
