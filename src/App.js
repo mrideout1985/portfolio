@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import About from "./components/About";
 import SinglePost from "./components/SinglePost";
 import Post from "./components/Post";
