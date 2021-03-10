@@ -71,7 +71,38 @@
 	}
 
 	@include respond(phone) {
-		width: 600px;
+		width: 100%;
+
+		.author {
+			.section {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				h2 {
+					align-self: center;
+				}
+
+				.about {
+					h3 {
+						text-align: center;
+
+						span {
+							display: block;
+						}
+					}
+
+					p {
+						width: 70%;
+						font-size: 1rem;
+					}
+				}
+			}
+		}
+	}
+
+	@include respond(tab-port) {
+		width: 100%;
 
 		.author {
 			.section {
@@ -94,9 +125,6 @@
 				}
 			}
 		}
-	}
-
-	@include respond(tab-port) {
 	}
 
 	@include respond(tab-land) {

@@ -1,8 +1,8 @@
 @import "../sass/abstracts/mixins";
 
 .page {
-	display: inline-block;
-	width: 1200px;
+	display: inline-flex;
+	width: 100%;
 	padding: 0.5rem 1rem;
 	box-sizing: border-box;
 	font-family: Open sans;
@@ -25,12 +25,11 @@
 			height: 100%;
 			margin-top: 5rem;
 			display: grid;
-			grid-template-columns: repeat(1, 1fr);
+			grid-template-columns: auto;
 			grid-template-rows: auto;
 			justify-content: center;
 
 			.card {
-				flex-direction: row;
 				max-width: 75rem;
 				height: 25rem;
 				display: flex;
@@ -235,7 +234,7 @@
 			}
 
 			@include respond(phone) {
-				grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+				grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
 				grid-template-rows: repeat(auto-fill, minmax(initial, 10rem));
 			}
 
@@ -256,7 +255,19 @@
 	}
 
 	@include respond(phone) {
-		width: 600px;
+		width: 100%;
+
+		.post-section {
+			width: 100%;
+
+			h2 {
+				text-align: center;
+			}
+		}
+	}
+
+	@include respond(tab-port) {
+		width: 100%;
 
 		.post-section {
 			width: 100%;

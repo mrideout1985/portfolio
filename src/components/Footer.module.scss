@@ -16,14 +16,14 @@
 	}
 
 	.icons {
+		@include respond(phone) {
+			margin: 0;
+		}
+
 		margin-right: 1rem;
 
 		.sm-icons {
 			margin-right: 1.5rem;
 		}
-	}
-
-	@include respond(phone) {
-		width: 600px;
 	}
 }
