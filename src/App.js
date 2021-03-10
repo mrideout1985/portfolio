@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import About from "./components/About";
 import SinglePost from "./components/SinglePost";
 import Post from "./components/Post";
@@ -10,17 +10,13 @@ import Footer from "./components/Footer";
 function App() {
 	return (
 		<BrowserRouter>
-			<div className="content">
-				<NavBar />
-				<Switch>
-					<Route component={About} path="/" exact />
-					<Route component={About} path="/about" />
-					<Route component={SinglePost} path="/posts/:slug" />
-					<Route component={Post} path="/post" />
-					<Route component={Project} path="/project" />
-				</Switch>
-				<Footer />
-			</div>
+			<NavBar />
+			<Route component={About} path="/" exact />
+			<Route component={About} path="/about" />
+			<Route component={SinglePost} path="/posts/:slug" />
+			<Route component={Post} path="/post" />
+			<Route component={Project} path="/project" />
+			<Footer />
 		</BrowserRouter>
 	);
 }

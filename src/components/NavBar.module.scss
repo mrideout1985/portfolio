@@ -1,153 +1,126 @@
 @import "../sass/abstracts/mixins";
 
 .container {
-    width: 1200px;
-    background-color: none;
-    font-family: monospace;
-    padding: .5rem 1rem;
-    box-sizing: border-box;
+	width: 100%;
+	background-color: none;
+	font-family: monospace;
+	padding: 0.5rem 1rem;
+	box-sizing: border-box;
 
+	&__header {
+		&-nav {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			height: 100%;
 
+			.logo {
+				text-decoration: none;
 
+				h1 {
+					font-size: 3.5rem;
+				}
 
-    &__header {
+				&--active {
+				}
 
+				&:active {
+					color: black;
+				}
 
+				&:visited {
+					color: black;
+				}
+			}
 
-        &-nav {
+			.menu {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				box-sizing: border-box;
 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 100%;
+				.navlink {
+					text-decoration: none;
+					position: relative;
+					margin-right: 1.5rem;
+					height: 1rem;
+					width: 100%;
+					padding: 0.8rem;
+					font-size: 1.5rem;
+					line-height: 1rem;
+					text-align: center;
 
+					&:last-child {
+						margin-right: 0;
+					}
 
-            .logo {
-                text-decoration: none;
+					&:hover::after {
+						transform: scaleY(1);
+						transform-origin: bottom;
+						width: 100%;
+						height: 100%;
+						transition: transform 0.25s ease-in-out;
+						z-index: -1;
+					}
 
+					&:after {
+						position: absolute;
+						content: "";
+						bottom: 0;
+						text-decoration: none;
+						left: 0;
+						height: 0;
+						width: 100%;
+						background: #ff1500bd;
+						transition: transform 0.25s ease-in-out;
+						transform: scaleY(0);
+					}
 
-                h1 {
-                    font-size: 3.5rem;
+					&:active {
+						color: black;
+					}
 
-                }
+					&:visited {
+						color: black;
+					}
+				}
 
-                &--active {}
+				.navlink-active {
+					position: relative;
+					transition: all 0.25 ease-in-out;
 
-                &:active {
-                    color: black;
-                }
+					&:after {
+						position: absolute;
+						content: "";
+						bottom: 0;
+						text-decoration: none;
+						transform: scaleX(1);
+						transform-origin: center;
+						left: 0;
+						width: 100%;
+						height: 100%;
+						background: #ff1500bd;
+						z-index: -1;
+					}
+				}
+			}
 
-                &:visited {
-                    color: black;
-                }
+			@include respond(phone) {
+				justify-content: center;
+				flex-direction: column;
 
+				.logo {
+					h1 {
+					}
+				}
+			}
+		}
+	}
 
-
-            }
-
-            .menu {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                box-sizing: border-box;
-
-                .navlink {
-                    text-decoration: none;
-                    position: relative;
-                    margin-right: 1.5rem;
-                    height: 1rem;
-                    width: 100%;
-                    padding: .8rem;
-                    font-size: 1.5rem;
-                    line-height: 1rem;
-                    text-align: center;
-
-                    &:last-child {
-                        margin-right: 0;
-                    }
-
-
-
-                    &:hover::after {
-                        transform: scaleY(1);
-                        transform-origin: bottom;
-                        width: 100%;
-                        height: 100%;
-                        transition: transform 0.25s ease-in-out;
-                        z-index: -1;
-
-
-                    }
-
-                    &:after {
-                        position: absolute;
-                        content: "";
-                        bottom: 0;
-                        text-decoration: none;
-                        left: 0;
-                        height: 0;
-                        width: 100%;
-                        background: #ff1500bd;
-                        transition: transform 0.25s ease-in-out;
-                        transform: scaleY(0);
-
-                    }
-
-                    &:active {
-                        color: black;
-                    }
-
-                    &:visited {
-                        color: black;
-                    }
-
-
-
-                }
-
-                .navlink-active {
-                    position: relative;
-                    transition: all .25 ease-in-out;
-
-
-                    &:after {
-                        position: absolute;
-                        content: "";
-                        bottom: 0;
-                        text-decoration: none;
-                        transform: scaleX(1);
-                        transform-origin: center;
-                        left: 0;
-                        width: 100%;
-                        height: 100%;
-                        background: #ff1500bd;
-                        z-index: -1;
-                    }
-                }
-
-            }
-
-            @include respond(phone) {
-                justify-content: center;
-                flex-direction: column;
-
-                .logo {
-                    h1 {}
-                }
-            }
-
-
-
-        }
-
-    }
-
-    @include respond(phone) {
-        width: 600px;
-    }
+	@include respond(phone) {
+		width: 600px;
+	}
 }
-
-
 
 // @include respond(tab-port) {}
 

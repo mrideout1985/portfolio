@@ -1,14 +1,1 @@
 @import "./sass/abstracts/_mixins.scss";
-
-.content {
-    margin: auto;
-    width: 1200px;
-    min-height: 100vh;
-
-    @include respond(phone) {
-        width: 600px;
-
-    }
-
-
-}

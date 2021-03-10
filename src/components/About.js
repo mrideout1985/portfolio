@@ -25,7 +25,12 @@ const About = () => {
 			.catch(console.error);
 	}, []);
 
-	if (!author) return <div>...Loading</div>;
+	if (!author)
+		return (
+			<div style={{ width: "100%", textAlign: "center" }}>
+				...Loading Page
+			</div>
+		);
 
 	return (
 		<main className={styles["container"]}>

@@ -1,108 +1,107 @@
 @import "../sass/abstracts/mixins";
 
 .container {
-    display: inline-block;
-    width: 1200px;
-    padding: .5rem 1rem;
-    box-sizing: border-box;
+	display: inline-block;
+	width: 100%;
+	padding: 0.5rem 1rem;
+	box-sizing: border-box;
 
+	.author {
+		margin-bottom: 5rem;
 
-    .author {
-        margin-bottom: 5rem;
+		.section {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			width: 100%;
 
-        .section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            width: 100%;
+			h2 {
+				margin: 0;
+				font-family: open sans;
+				font-size: 3rem;
+				font-weight: 100;
+				align-self: flex-start;
+			}
 
-            h2 {
-                margin: 0;
-                font-family: open sans;
-                font-size: 3rem;
-                font-weight: 100;
-                align-self: flex-start;
-            }
+			img {
+				height: 12rem;
+				border-radius: 50%;
+				box-shadow: 2px 0.5rem 1rem rgba(0, 0, 0, 0.6);
+				margin-top: 5rem;
+			}
 
-            img {
-                height: 12rem;
-                border-radius: 50%;
-                box-shadow: 2px .5rem 1rem rgba(0, 0, 0, .6);
-                margin-top: 5rem;
-            }
+			.about {
+				display: flex;
+				align-items: center;
+				flex-direction: column;
 
-            .about {
-                display: flex;
-                align-items: center;
-                flex-direction: column;
+				code {
+					background-color: rgb(203, 202, 209);
+					font-family: "Courier New", Courier, monospace;
+					padding: 0.5rem 1rem;
+					letter-spacing: 0.1rem;
+				}
 
+				h3 {
+					font-family: open sans;
+					font-weight: 100;
+					font-size: 2.5rem;
+					letter-spacing: 0.15rem;
+					align-self: center;
 
-                code {
-                    background-color: rgb(203, 202, 209);
-                    font-family: 'Courier New', Courier, monospace;
-                    padding: .5rem 1rem;
-                    letter-spacing: .1rem;
-                }
+					span {
+						font-weight: 700;
+					}
+				}
 
-                h3 {
-                    font-family: open sans;
-                    font-weight: 100;
-                    font-size: 2.5rem;
-                    letter-spacing: .15rem;
-                    align-self: center;
+				p {
+					display: inline;
+					width: 50%;
+					margin: 0;
+					font-size: 1.2rem;
+					font-family: "Lucida Sans", "Lucida Sans Regular",
+						"Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana,
+						sans-serif;
+					line-height: 1.5rem;
+					text-align: justify;
+				}
+			}
+		}
+	}
 
+	@include respond(phone) {
+		width: 600px;
 
-                    span {
-                        font-weight: 700;
-                    }
-                }
+		.author {
+			.section {
+				display: flex;
+				justify-content: center;
+				align-items: center;
 
-                p {
-                    display: inline;
-                    width: 50%;
-                    margin: 0;
-                    font-size: 1.2rem;
-                    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-                    line-height: 1.5rem;
-                    text-align: justify;
-                }
-            }
-        }
-    }
+				h2 {
+					align-self: center;
+				}
 
-    @include respond(phone) {
+				.about {
+					h3 {
+						text-align: center;
 
-        width: 600px;
+						span {
+							display: block;
+						}
+					}
+				}
+			}
+		}
+	}
 
-        .author {
+	@include respond(tab-port) {
+	}
 
+	@include respond(tab-land) {
+	}
 
-            .section {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                h2 {
-                    align-self: center;
-                }
-
-                .about {
-                    h3 {
-                        text-align: center;
-
-                        span {
-                            display: block;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    @include respond(tab-port) {}
-
-    @include respond(tab-land) {}
-
-    @include respond(big-desktop) {}
+	@include respond(big-desktop) {
+	}
 }
