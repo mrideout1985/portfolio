@@ -15,6 +15,15 @@
 		font-family: monospace;
 	}
 
+	@include respond(belowphone) {
+		justify-content: center;
+		flex-direction: column;
+		h1 {
+			justify-self: center;
+			margin: 0;
+		}
+	}
+
 	.icons {
 		@include respond(phone) {
 			margin: 0;
@@ -24,6 +33,11 @@
 
 		.sm-icons {
 			margin-right: 1.5rem;
+
+			@include respond(belowphone) {
+				margin: 0.5rem;
+				width: 100%;
+			}
 		}
 	}
 }

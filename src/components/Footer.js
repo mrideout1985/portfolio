@@ -12,7 +12,7 @@ const Footer = () => {
 					className={styles["sm-icons"]}
 					target="_blank"
 					fgColor="#fff"
-					style={{ height: 35, width: 35 }}
+					style={{ height: 30, width: 30 }}
 				/>
 				<SocialIcon
 					url="https://github.com/mrideout1985"
