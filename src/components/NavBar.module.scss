@@ -14,14 +14,21 @@
 			align-items: center;
 			height: 100%;
 
+			a {
+				&:active {
+					color: black;
+				}
+
+				&:visited {
+					color: black;
+				}
+			}
+
 			.logo {
 				text-decoration: none;
 
 				h1 {
 					font-size: 3.5rem;
-				}
-
-				&--active {
 				}
 
 				&:active {
